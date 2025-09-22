@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link th:href="@{/css/navbar.css}" rel="stylesheet">
+</head>
+
+<body>
+    <div th:fragment="navbar" class="navbar">
+        <nav class="navbar-container">
+            <a th:href="@{/dashboard}">Dashboard</a>
+            <a th:href="@{/lista}">Lista de Produtos</a>
+            <a th:href="@{/cadastro}">Cadastrar Produto</a>
+            <a th:href="@{/logout}">Sair</a>
+
+            <div class="user-icon">
+                <i class="fas fa-user-circle"></i>
+                <span th:text="${username}">Usuário</span>
+            </div>
+        </nav>
+    </div>
+</body>
+
+</html>

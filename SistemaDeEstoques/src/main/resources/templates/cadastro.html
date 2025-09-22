@@ -1,0 +1,59 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>Cadastrar Produto</title>
+    <link th:href="@{/css/cadastro.css}" rel="stylesheet">
+    <link th:href="@{/css/navbar.css}" rel="stylesheet">
+</head>
+
+<body>
+    <div th:fragment="navbar" class="navbar">
+        <nav class="navbar-container">
+            <a th:href="@{/dashboard}">Dashboard</a>
+            <a th:href="@{/lista}">Lista de Produtos</a>
+            <a th:href="@{/cadastro}">Cadastrar Produto</a>
+            <a th:href="@{/logout}">Sair</a>
+
+            <div class="user-icon">
+                <i class="fas fa-user-circle"></i>
+                <span th:text="${username}">Usuário</span>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container">
+        <h2>Cadastrar Novo Produto</h2>
+
+        <div class="form-card">
+            <form th:action="@{/produtos}" th:object="${novoProduto}" method="post">
+                <label>Nome:</label>
+                <input type="text" th:field="*{nome}" required>
+
+                <label>Quantidade:</label>
+                <input type="text" th:field="*{quantidade}" required>
+
+                <label>Descrição:</label>
+                <input type="text" th:field="*{quantidade}" required>
+
+                <label>Preço:</label>
+                <input type="number" step="0.01" th:field="*{preco}" required>
+
+                <label>Peso (kg):</label>
+                <input type="number" step="0.01" th:field="*{peso}">
+
+                <label>Tipo:</label>
+                <input type="text" th:field="*{tipo}">
+
+                <label>Validade:</label>
+                <input type="date" th:field="*{validade}">
+
+                <button class="btn btn-warning" type="submit">Salvar</button>
+            </form>
+        </div>
+
+    </div>
+</body>
+
+</html>

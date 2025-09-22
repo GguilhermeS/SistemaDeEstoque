@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Definir Nova Senha</title>
+    <link th:href="@{/css/login.css}" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Defina sua Nova Senha</h2>
+
+        <div th:if="${mensagemErro}" class="message error" th:text="${mensagemErro}"></div>
+
+        <form th:action="@{/salvar-nova-senha}" method="post">
+            <input type="hidden" name="email" th:value="${email}">
+            <input type="password" name="senha" placeholder="Nova senha" required>
+            <input type="password" name="confirmarSenha" placeholder="Confirmar senha" required>
+            <button type="submit">Salvar Senha</button>
+        </form>
+
+        <div class="back-link">
+            <a th:href="@{/login}">Voltar ao login</a>
+        </div>
+    </div>
+</body>
+
+</html>

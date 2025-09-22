@@ -1,0 +1,42 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>Editar Produto</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <link th:href="@{/css/navbar.css}" rel="stylesheet">
+</head>
+
+<body>
+    <div th:fragment="navbar" class="navbar">
+        <nav class="navbar-container">
+            <a th:href="@{/dashboard}">Dashboard</a>
+            <a th:href="@{/lista}">Lista de Produtos</a>
+            <a th:href="@{/cadastro}">Cadastrar Produto</a>
+            <a th:href="@{/logout}">Sair</a>
+
+            <div class="user-icon">
+                <i class="fas fa-user-circle"></i>
+                <span th:text="${username}">Usuário</span>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container">
+        <h2>Editar Produto</h2>
+        <form th:action="@{/editar/{id}(id=${produto.id})}" th:object="${produto}" method="post">
+            <input type="text" th:field="*{nome}" placeholder="Nome" required>
+            <input type="number" th:field="*{quantidade}" placeholder="Quantidade" min="0" required>
+            <input type="date" th:field="*{validade}" placeholder="Validade" min="0" required>
+            <input type="text" th:field="*{descricao}" placeholder="Descrição">
+            <input type="number" th:field="*{preco}" placeholder="Preço" min="0" required>
+            <input type="number" th:field="*{peso}" placeholder="Peso" min="0" required>
+            <input type="text" th:field="*{tipo}" placeholder="Tipo" required>
+            <button type="submit" class="btn btn-primary">Salvar</button>
+        </form>
+        <a th:href="@{/lista}">Voltar</a>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>Dashboard</title>
+    <link th:href="@{/css/dashboard.css}" rel="stylesheet">
+    <link th:href="@{/css/navbar.css}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+    </style>
+</head>
+
+<body class="bg-light">
+
+    <div th:fragment="navbar" class="navbar">
+        <nav class="navbar-container">
+            <a th:href="@{/dashboard}">Dashboard</a>
+            <a th:href="@{/lista}">Lista de Produtos</a>
+            <a th:href="@{/cadastro}">Cadastrar Produto</a>
+            <a th:href="@{/logout}">Sair</a>
+
+            <div class="user-icon">
+                <i class="fas fa-user-circle"></i>
+                <span th:text="${username}">Usuário</span>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container">
+        <h1 class="title" th:text="${'Olá, ' + username + '!'}"></h1>
+
+        <div class="cards-container">
+            <div class="card">
+                <p>Total de Produtos</p>
+                <span th:text="${totalProdutos}">0</span>
+            </div>
+            <div class="card">
+                <p>Total em Estoque</p>
+                <span th:text="${totalEstoque}">0</span>
+            </div>
+            <div class="card">
+                <p>Valor Total</p>
+                <span class="valor" th:text="'R$ ' + ${#numbers.formatDecimal(valorTotal, 1, 'COMMA', 2, 'POINT')}">R$
+                    0,00</span>
+            </div>
+            <div class="card" th:classappend="${baixoEstoque > 0} ? 'baixo-estoque-alert'">
+                <p>Baixo Estoque</p>
+                <span th:text="${baixoEstoque}">0</span>
+            </div>
+        </div>
+
+        <div class="search-container">
+            <form th:action="@{/dashboard}" method="get">
+                <input type="text" name="filtro" placeholder="Buscar por nome ou tipo" th:value="${filtro}">
+                <button type="submit"><i class="fas fa-search"></i></button>
+                <a th:href="@{/dashboard}" style="margin-left: 8px; text-decoration:none; color:#555;">Limpar</a>
+            </form>
+        </div>
+
+        <h2>Produtos Cadastrados</h2>
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Produto</th>
+                    <th>Quantidade</th>
+                    <th>Validade</th>
+                    <th>Preço</th>
+                    <th>Peso</th>
+                    <th>Tipo</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="p : ${produtos}">
+                    <td th:text="${p.id}"></td>
+                    <td th:text="${p.nome}"></td>
+                    <td th:text="${p.quantidade}"></td>
+                    <td th:text="${p.validade}"></td>
+                    <td th:text="${p.preco}"></td>
+                    <td th:text="${p.peso}"></td>
+                    <td th:text="${p.tipo}"></td>
+                    <td>
+                        <a class="btn btn-warning" th:href="@{'/editar/' + ${p.id}}">Editar</a>
+                        <form th:action="@{'/produtos/' + ${p.id} + '/excluir'}" method="post" style="display:inline;">
+                            <button type="submit" class="btn btn-danger">Excluir</button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script th:src="@{/js/dashboard.js}"></script>
+</body>
+
+</html>

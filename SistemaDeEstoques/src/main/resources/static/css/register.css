@@ -1,0 +1,100 @@
+:root {
+    --primary-color: #4a90e2;
+    --secondary-color: #7b8c9d;
+    --third-color: #e0e0e09f;
+    --background-color: #f5f6f8;
+    --card-background: #ffffff;
+    --text-color: #333333;
+    --success-color: #2ecc71;
+    --error-color: #e74c3c;
+    --warning-color: #f39c12;
+    --border-color: #e0e0e0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #f5f6fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background: #fff;
+    padding: 40px;
+    width: 400px;
+    border-radius: 20px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.container h2 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #1a1a1a;
+}
+
+.form .input-box {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #444;
+}
+
+input {
+    padding: 12px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    border-color: #5a67f2;
+    box-shadow: 0px 0px 5px rgba(90, 103, 242, 0.3);
+}
+
+button {
+    margin-top: 20px;
+    padding: 14px;
+    background: #5a67f2;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #4348d1;
+}
+
+.voltar {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    text-decoration: none;
+    font-size: 14px;
+    color: #5a67f2;
+    font-weight: 500;
+}
+
+.voltar:hover {
+    text-decoration: underline;
+}

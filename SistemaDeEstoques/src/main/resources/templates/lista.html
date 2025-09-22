@@ -1,0 +1,65 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>Meus Produtos</title>
+    <link th:href="@{/css/lista.css}" rel="stylesheet">
+    <link th:href="@{/css/navbar.css}" rel="stylesheet">
+</head>
+
+<body>
+    <div th:fragment="navbar" class="navbar">
+        <nav class="navbar-container">
+            <a th:href="@{/dashboard}">Dashboard</a>
+            <a th:href="@{/lista}">Lista de Produtos</a>
+            <a th:href="@{/cadastro}">Cadastrar Produto</a>
+            <a th:href="@{/logout}">Sair</a>
+
+            <div class="user-icon">
+                <i class="fas fa-user-circle"></i>
+                <span th:text="${username}">Usuário</span>
+            </div>
+        </nav>
+    </div>
+
+
+    <div class="dashboard">
+        <h2>Meus Produtos</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Quantidade</th>
+                    <th>Validade</th>
+                    <th>Preço</th>
+                    <th>Peso</th>
+                    <th>Tipo</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="p : ${produtos}">
+                    <td th:text="${p.id}"></td>
+                    <td th:text="${p.nome}"></td>
+                    <td th:text="${p.quantidade}"></td>
+                    <td th:text="${p.validade}"></td>
+                    <td th:text="${p.preco}"></td>
+                    <td th:text="${p.peso}"></td>
+                    <td th:text="${p.tipo}"></td>
+                    <td>
+                        <a class="btn btn-editar" th:href="@{'/editar/' + ${p.id}}">Editar</a>
+                        <form th:action="@{'/produtos/' + ${p.id} + '/excluir'}" method="post" style="display:inline;">
+                            <button type="submit" class="btn btn-excluir">Excluir</button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script th:src="@{/js/lista.js}"></script>
+</body>
+
+</html>

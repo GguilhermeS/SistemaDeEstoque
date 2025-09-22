@@ -1,0 +1,141 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f4fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    padding: 50px;
+    width: 400px;
+    max-width: 90%;
+    text-align: center;
+}
+
+.container h2 {
+    color: #333;
+    font-size: 32px;
+    margin-bottom: 40px;
+    font-weight: 600;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input[type="text"],
+input[type="password"] {
+    background-color: #f7f9fc;
+    border: 1px solid #e0e6f6;
+    border-radius: 10px;
+    padding: 14px 18px;
+    font-size: 16px;
+    color: #333;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #5b79fc;
+    box-shadow: 0 0 0 3px rgba(91, 121, 252, 0.2);
+}
+
+input[type="email"] {
+    background-color: #f7f9fc;
+    border: 1px solid #e0e6f6;
+    border-radius: 10px;
+    padding: 14px 18px;
+    font-size: 16px;
+    color: #333;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input[type="email"]:focus {
+    border-color: #5b79fc;
+    box-shadow: 0 0 0 3px rgba(91, 121, 252, 0.2);
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    color: #666;
+}
+
+.remember-me input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: #5b79fc;
+}
+
+.forgot-password {
+    color: #5b79fc;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+button[type="submit"] {
+    background-color: #5b79fc;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 15px 20px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #435fe2;
+    box-shadow: 0 8px 20px rgba(91, 121, 252, 0.3);
+}
+
+.message {
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+.message.error {
+    color: #d9534f;
+}
+
+.message.success {
+    color: #5cb85c;
+}
+
+.signup-link {
+    font-size: 14px;
+    color: #666;
+    margin-top: 25px;
+}
+
+.signup-link a {
+    color: #5b79fc;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
